@@ -1,0 +1,94 @@
+<div class="container">
+
+    <div
+        *ngIf="formReady"
+        class="form-container"
+    >
+        <form
+            [formGroup]="nameForm"
+            (ngSubmit)="submitForm(nameForm)"
+        >
+
+            <div class="form-row">
+                <div class="label">
+                    First Name
+                </div>
+                <input
+                    type="text"
+                    placeholder="Jerry"
+                    formControlName="name"
+                />
+            </div>
+
+            <div class="form-row">
+                <div class="label">
+                    Birth Month
+                </div>
+                <select
+                    formControlName="month"
+                >
+                    <option
+                        *ngFor="let noun of nouns; let i = index"
+                        [value]="i"
+                    >
+                        {{ i + 1 }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <div class="label">
+                    Birth Day
+                </div>
+                <select
+                    formControlName="day"
+                    selected="0"
+                >
+                    <option
+                        *ngFor="let adj of adjectives; let i = index"
+                        [value]="i"
+                    >
+                        {{ i + 1 }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <button
+                    [disabled]="nameForm.invalid"
+                    type="submit"
+                >
+                    Generate Band Names.
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="display-container">
+
+        <div
+            *ngIf="!bandNames"
+            class="names-placeholder"
+        >
+            Fill Out the Form<br />to Generate Band Names
+        </div>
+
+        <div
+            *ngIf="bandNames"
+            class="names-container"
+        >
+
+            <div
+                *ngFor="let name of bandNames"
+                class="name"
+            >
+                {{ name }}
+            </div>
+
+        </div>
+
+    </div>
+</div>

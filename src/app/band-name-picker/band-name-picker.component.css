@@ -1,0 +1,110 @@
+:host {
+    display: flex;
+    border-radius: 2px;
+    width: 100%;
+    height: 100%;
+    background: #D62246;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form-row {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+    padding: 114px 0px;
+    color: white;
+    font-size: 30px;
+}
+
+.divider {
+    width: 6px;
+    height: 89%;
+    background: white;
+    border-radius: 3px;
+}
+
+.display-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 28px;
+}
+
+.names-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 130px 0;
+}
+
+.names-placeholder {
+    text-align: center;
+}
+
+input, select {
+    width: 200px;
+    height: 32px;
+    border-radius: 5px;
+    font-size: 23px;
+    border: 2px solid black;
+    text-align: center;
+    outline: none;
+}
+
+select {
+    height: 40px;
+    width: 206px;
+    cursor: pointer;
+}
+
+.form-row:last-of-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    width: 100%;
+    height: 43px;
+    border-radius: 5px;
+    border: 2px solid #FFBD00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
