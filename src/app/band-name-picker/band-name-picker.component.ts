@@ -1,20 +1,21 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-band-name-picker',
     templateUrl: './band-name-picker.component.html',
-    styleUrls: ['./band-name-picker.component.css']
+    styleUrls: ['./band-name-picker.component.css'],
+    encapsulation: ViewEncapsulation.ShadowDom
 })
-export class BandNamePickerComponent implements OnInit {
+export class BandNameGeneratorComponent implements OnInit {
     // 31 adj
-    @Input() adjectives: string[];
+    @Input() adjectives: string[] | string;
     // 31 adj ending in -est -ing -y
-    @Input() otherAdjectives: string[];
+    @Input() otherAdjectives: string[]| string;
     // 12 nouns
-    @Input() nouns: string[];
+    @Input() nouns: string[]| string;
     // 12 plural nouns
-    @Input() pluralNouns: string[];
+    @Input() pluralNouns: string[]| string;
 
     bandNames: string[];
     nameForm: FormGroup;
@@ -23,7 +24,17 @@ export class BandNamePickerComponent implements OnInit {
     constructor(private fb: FormBuilder) {}
 
     ngOnInit() {
+        this.checkString();
         this.initForm();
+    }
+
+    checkString(): void {
+        if (typeof this.adjectives === 'string') {
+            this.adjectives = JSON.parse(this.adjectives as string);
+            this.otherAdjectives = JSON.parse(this.otherAdjectives as string);
+            this.nouns = JSON.parse(this.nouns as string);
+            this.pluralNouns = JSON.parse(this.pluralNouns as string);
+        }
     }
 
     initForm(): void {

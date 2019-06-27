@@ -1,14 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
 
 import { AppComponent } from './app.component';
-import { BandNamePickerComponent } from './band-name-picker/band-name-picker.component';
+import { BandNameGeneratorComponent } from './band-name-picker/band-name-picker.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-    declarations: [AppComponent, BandNamePickerComponent],
-    imports: [BrowserModule, ReactiveFormsModule],
-    providers: [],
-    bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        BandNameGeneratorComponent
+    ],
+    imports: [
+        BrowserModule,
+        ReactiveFormsModule
+    ],
+    entryComponents: [
+        BandNameGeneratorComponent
+    ]
 })
-export class AppModule {}
+export class AppModule {
+
+    constructor(private injector: Injector) {}
+
+    ngDoBootstrap() {
+        const el = createCustomElement(
+            BandNameGeneratorComponent,
+            { injector: this.injector }
+        );
+
+        customElements.define('band-name-generator', el);
+    }
+}
