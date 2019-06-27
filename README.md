@@ -1,8 +1,6 @@
-# Rock BandName Generator
+# Rock BandName Generator [Live Demo](https://chbaker.github.io/Band-Name-generator/)
 
 This project was built to be used as an angular element for the [Rockstar Radio](https://github.com/CHBaker/Rockstar-Radio)
-
-## [Live Demo](https://chbaker.github.io/Band-Name-generator/)
 
 ## Purpose
 This app was built for Angular Denver: This angular element runs inside the [Rockstar Radio](https://github.com/CHBaker/Rockstar-Radio) "legacy app" written in Django.
